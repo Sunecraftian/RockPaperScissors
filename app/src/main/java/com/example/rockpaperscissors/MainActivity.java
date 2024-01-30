@@ -1,19 +1,16 @@
 package com.example.rockpaperscissors;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rockpaperscissors.databinding.ActivityMainBinding;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
 
     private Random rand;
     private int playerScore;
@@ -21,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private Weapon playerWeapon;
     private Weapon computerWeapon;
     private Weapon[] weapons;
-
-    private String winner;
 
     private TextView textView3;
     private TextView textView4;
@@ -32,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.example.rockpaperscissors.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
         rand = new Random();
@@ -46,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         textView4 = binding.textView4;
         textView5 = binding.textView5;
         textView6 = binding.textView6;
-
-
 
         binding.rockButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,17 +63,6 @@ public class MainActivity extends AppCompatActivity {
             scoring();
         });
 
-
-
-//        binding.clickMe.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                TextView t = binding.plotTextbox;
-//                int randomPlot = random.nextInt(plot_fragments.length);
-//                String plot = plot_fragments[randomPlot];
-//                t.setText(plot);
-//            }
-//        });
 
     }
     private void playerTurn(View v) {
@@ -109,27 +91,31 @@ public class MainActivity extends AppCompatActivity {
 
         int condition = playerWeapon.compareTo(computerWeapon);
 
-        if (condition == 0) { // TIE
-            textView6.setText(R.string.tie);
-        } else if (condition % 2 == 0)
-            if (condition < 0) {
+        switch (condition) {
+            case -2:
                 textView6.setText(R.string.rock_win);
                 playerScore++;
-            } else {
-                textView6.setText(R.string.scissor_win);
+                break;
+            case -1:
+                if (playerWeapon == Weapon.ROCK) textView6.setText(R.string.paper_win);
+                if (playerWeapon == Weapon.PAPER) textView6.setText(R.string.scissor_win);
                 computerScore++;
+                break;
+            case 0:
+                textView6.setText(R.string.tie);
+                break;
+            case 1:
+                if (playerWeapon == Weapon.PAPER) textView6.setText(R.string.paper_win);
+                if (playerWeapon == Weapon.SCISSORS) textView6.setText(R.string.scissor_win);
+                playerScore++;
+                break;
+            case 2:
+                textView6.setText(R.string.rock_win);
+                computerScore++;
+                break;
 
-        // TODO fix PAPER win conditions
-        } else {
-                if (condition < 0) {
-                    textView6.setText(R.string.scissor_win);
-                    computerScore++;
-                } else {
-                    textView6.setText(R.string.paper_win);
-                    playerScore++;
-                }
         }
-
-        textView3.setText(getString(R.string.score,playerScore,computerScore));
+        String winner = getString(R.string.score, playerScore, computerScore);
+        textView3.setText(winner);
     }
 }
