@@ -10,59 +10,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center|top"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/welcome_textbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/welcome_text"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/weapon_select_text"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/rock_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ROCK" />
+            android:text="@string/rock_button_text" />
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/button3"
+            android:id="@+id/paper_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="@string/paper_button_text" />
+
+        <Button
+            android:id="@+id/scissors_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/scissors_button_text" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:hint="score"
+            android:textColorHint="#546E7A" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:hint="player selection"
+            android:textColorHint="#546E7A" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:hint="computer selection"
+            android:textColorHint="#546E7A" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:hint="winner"
+            android:textColorHint="#546E7A" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,20 @@
 <resources>
     <string name="app_name">RockPaperScissors</string>
+
     <string name="rock_button_text">ROCK</string>
     <string name="paper_button_text">PAPER</string>
     <string name="scissors_button_text">SCISSORS</string>
-    <string-array name="welcome_text">
-        <item>Welcome to Rock-Paper-Scissors!</item>
-        <item>Please choose your weapon:</item>
-    </string-array>
+
+    <string name="welcome_text">Welcome to Rock-Paper-Scissors!</string>
+    <string name="weapon_select_text"> Please choose your weapon:</string>
+
     <string name="score">Player: %1$d, Computer: %2$d</string>
-    <string-array name="weapons">
-        <item>Player\'s Weapon: %1$s</item>
-        <item>Computer\'s Weapon: %1$s</item>
-    </string-array>
-    <string name="winner">%1$s wins: %2$s</string>
+
+    <string name="player_selection">Player\'s Weapon: %1$s</string>
+    <string name="computer_selection">Computer\'s Weapon: %1$s</string>
+
+    <string name="rock_win">Rock breaks Scissors!</string>
+    <string name="paper_win">Paper covers Rock!</string>
+    <string name="scissor_win">Scissors cuts Paper!</string>
+    <string name="tie"> Its a Tie!</string>
 </resources>
